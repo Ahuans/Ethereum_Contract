@@ -108,31 +108,31 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
+						"internalType": "uint256",
 						"name": "",
-						"type": "address"
+						"type": "uint256"
 					}
 				],
 				"name": "donators",
 				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "targetId",
+						"type": "uint256"
+					},
 					{
 						"internalType": "string",
 						"name": "name",
 						"type": "string"
 					},
 					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					},
-					{
 						"internalType": "address",
-						"name": "delegator",
+						"name": "donator_addr",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "targetId",
+						"name": "amount",
 						"type": "uint256"
 					}
 				],
@@ -274,11 +274,11 @@
 	},
 	"sources": {
 		"contracts/Donate.sol": {
-			"keccak256": "0xcb2ae97f711331e676f8d51961ba35a524a196f043894dcb95a71409a7bf8112",
+			"keccak256": "0x4ac302ce88139bea756829bdbe8e88e415c6dc16011cb12ddb6e48211cb6b7ed",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://8ed7c312683763dad9f302352e8bffb1d22e4e8c24fb18f28a86b353144a8c3b",
-				"dweb:/ipfs/QmSwb56gm29ge7gnh8Gu6HxiqefpvqCvms4EhAfEr6st1c"
+				"bzz-raw://b2755c68b0f6494d45b03ed23ddadf33cfa7309fc372dd84729671323f2c1244",
+				"dweb:/ipfs/QmQh5p7zJ3Bp7mudyz2gzVQ3gMZzpdWVYRLC8S4iZreKjx"
 			]
 		}
 	},
