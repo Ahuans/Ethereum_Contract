@@ -346,6 +346,67 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "_hostAddr",
+						"type": "address"
+					}
+				],
+				"name": "getBoardsByAddr",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "context",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "host",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "hostname",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "targetAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "totalAmount",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "expire",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Donate.Board[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "uint256",
 						"name": "_boardIndex",
 						"type": "uint256"
@@ -467,11 +528,11 @@
 	},
 	"sources": {
 		"contracts/Donate.sol": {
-			"keccak256": "0x7459e8e233e32c2154fc2d14f79c9a29e6a41624be93585cf5e4fbc1af27a91f",
+			"keccak256": "0xd93b89d7649c8728922aba5314180f6d8031d00b63d3fd65f1f07fcdef7f263d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://787ecb6148a9f6286de4f2ade4b2090e142933a5a39f23a94c03801b4c641b28",
-				"dweb:/ipfs/QmV5CM9rcGZizNpNgu5uYiczz2TagK96DAptzN9mK8RGeG"
+				"bzz-raw://2d1ba8a0aad503750c9245961aff7b83c2fe912da022c8330ec4457d5a1b3bfc",
+				"dweb:/ipfs/QmT92qhmH3taYygDq1WxGndQUgk8AGtgurH9LcLtZ6UEgw"
 			]
 		}
 	},

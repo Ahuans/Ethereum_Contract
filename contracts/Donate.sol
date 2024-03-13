@@ -21,6 +21,7 @@ contract Donate{
     
     bool public mutex;
     uint256  public boardIndex;
+    mapping(address=>Donator[]) donator_info;
     Donator[] public donators;
     Board[] public boards;
     constructor(){
@@ -41,6 +42,24 @@ contract Donate{
     {
         require(!boards[_boardIndex].expire,"This board has expired");
         return boards[_boardIndex];
+    }
+    function getBoardsByAddr(address _hostAddr) public view returns (Board[] memory)
+    {
+        uint256 count;
+        for (uint256 i = 0; i < boards.length; i++) {
+            if(boards[i].host==_hostAddr){
+                ++count;
+            }
+        }
+        Board[] memory _boards=new Board[](count);
+        uint256 index;
+        for (uint256 i = 0; i < boards.length; i++) {
+            if(boards[i].host==_hostAddr){
+                _boards[index++]=boards[i];
+                
+            }
+        }
+        return _boards;
     }
     function getAllBoardsUnExpir() public view returns(Board[] memory)
     {
@@ -103,27 +122,30 @@ contract Donate{
     function getDonatorInfoByAddr(address _address) public view returns(Donator[] memory)
     {
         require(_address!=address(0),"invalid address");
-         uint256 count;
-        for (uint256 i = 0; i < donators.length; i++) {
-            if(donators[i].donator_addr==_address){
-                ++count;
-            }
-        }
-        Donator[] memory _donators=new Donator[](count);
-        uint256 index;
-        for (uint256 i = 0; i < donators.length; i++) {
-            if(donators[i].donator_addr==_address){
-                _donators[index++]=donators[i];
+        //  uint256 count;
+        // for (uint256 i = 0; i < donators.length; i++) {
+        //     if(donators[i].donator_addr==_address){
+        //         ++count;
+        //     }
+        // }
+        // Donator[] memory _donators=new Donator[](count);
+        // uint256 index;
+        // for (uint256 i = 0; i < donators.length; i++) {
+        //     if(donators[i].donator_addr==_address){
+        //         _donators[index++]=donators[i];
                 
-            }
-        }
-        return _donators;
+        //     }
+        // }
+        // return _donators;
+        return donator_info[_address];
     }
     function donate(uint256 _targetId,string calldata name,address _donator_addr,uint256 _amount) public {
         require(_donator_addr!=address(0),"invalid address");
         Donator memory _donator=Donator(_targetId,name,_donator_addr,_amount);
         donators.push(_donator);
-        for(uint256 i=0;i<boards.length;++i)
+        donator_info[_donator_addr].push(_donator);
+        uint256 i;
+        for(;i<boards.length;++i)
         {
             if(boards[i].id==_targetId)
             {
@@ -131,10 +153,12 @@ contract Donate{
                 if(boards[i].totalAmount>=boards[i].targetAmount)
                 {
                     boards[i].expire=true;
+                    
                 }
                 break;
             }
         }
+        require(i<boards.length,"no such board!");
     }
 
 }
