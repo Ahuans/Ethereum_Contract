@@ -528,11 +528,11 @@
 	},
 	"sources": {
 		"contracts/Donate.sol": {
-			"keccak256": "0xd93b89d7649c8728922aba5314180f6d8031d00b63d3fd65f1f07fcdef7f263d",
+			"keccak256": "0x64056c3c858ca799ed8cf055695375355099b7e184f84f4ad84362d20cb80e53",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://2d1ba8a0aad503750c9245961aff7b83c2fe912da022c8330ec4457d5a1b3bfc",
-				"dweb:/ipfs/QmT92qhmH3taYygDq1WxGndQUgk8AGtgurH9LcLtZ6UEgw"
+				"bzz-raw://9fc28f11bc6fc04d9972c455660f9ca8098b02d23a5e405768de6d991da61eac",
+				"dweb:/ipfs/QmStf19TbvXJLDwRVodZDqZkpsqQCEFcjhnYcJxtZSBh12"
 			]
 		}
 	},
