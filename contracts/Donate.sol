@@ -1,13 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 contract Donate{
-    
+    //Donor information
     struct Donator{
         uint256 targetId;
         string name;
         address donator_addr;
         uint256 amount;
     }
+    //Fundraising announcement information
     struct Board{
         uint256 id;
         string name;
@@ -28,6 +29,7 @@ contract Donate{
         boardIndex=0;
         mutex=false;
     }
+    //Put out a announcement
     function createBoard(string calldata hostname,address  host,string calldata _name,string calldata _context,uint256  _targetAmount) public {
         require(host!=address(0),"invalid host address");
         require(!mutex,"Sorry, someone is creating the board. Pleas wait a minute and repeat");
@@ -38,11 +40,13 @@ contract Donate{
         mutex=false;
         
     }
+    //Get the announcement information according to the fundraising announcement ID
     function getBoardInfo(uint256 _boardIndex) public view returns(Board memory)
     {
         require(!boards[_boardIndex].expire,"This board has expired");
         return boards[_boardIndex];
     }
+    //Obtain announcement information based on the address of the publisher
     function getBoardsByAddr(address _hostAddr) public view returns (Board[] memory)
     {
         uint256 count;
@@ -61,6 +65,7 @@ contract Donate{
         }
         return _boards;
     }
+    //Get all unexpired announcement
     function getAllBoardsUnExpir() public view returns(Board[] memory)
     {
         
@@ -81,6 +86,7 @@ contract Donate{
         }
         return _boards;
     }
+    //Get all expired announcement
     function getAllBoardsExpir() public view returns(Board[] memory)
     {
         
@@ -100,6 +106,7 @@ contract Donate{
         }
         return _boards;
     }
+    //Get information about all donations donated to an announcement
     function getDonatorInBoard(uint256 _boardIndex) public view returns(Donator[] memory)
     {
         
@@ -119,6 +126,7 @@ contract Donate{
         }
         return _donators;
     }
+    //Get all fundraising information for an account address
     function getDonatorInfoByAddr(address _address) public view returns(Donator[] memory)
     {
         require(_address!=address(0),"invalid address");
@@ -139,6 +147,7 @@ contract Donate{
         // return _donators;
         return donator_info[_address];
     }
+    //Donation method
     function donate(uint256 _targetId,string calldata name,address _donator_addr,uint256 _amount) public {
         require(_donator_addr!=address(0),"invalid address");
         Donator memory _donator=Donator(_targetId,name,_donator_addr,_amount);

@@ -42,12 +42,13 @@ contract Token is Context{
     function allowanceOf(address _owner,address _spender) public view returns(uint256){
         return _allowances[_owner][_spender];
     }
-
+//The contract caller transfers money to another account
     function transfer(address _to, uint256 _value) public returns (bool){
         address owner=_msgSender();
         _transfer(owner,_to, _value);
         return true;
     }
+//Transfer function
      function transferFrom(address _from, address _to, uint256 _value) public returns (bool){
         address owner=_msgSender();
         _spenderAllowance(_from,owner,_value);
@@ -59,8 +60,7 @@ contract Token is Context{
         _approve(_owner,_spender,_value);
         return true;
      }
-    // function allowance(address _owner, address _spender) public view returns (uint256 remaining)
-    // functions in contract
+//Notification event after successful transfer and authorization
     event Transfer(address indexed _from, address indexed _to, uint256 _value);
     event Approval(address indexed _owner, address indexed _spender, uint256 _value);
 
