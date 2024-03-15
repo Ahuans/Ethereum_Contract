@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 // Compatible with OpenZeppelin Contracts ^5.0.0
 pragma solidity ^0.8.20;
-import './Context.sol';
 
-contract Token is Context{
+
+contract Token {
     //Tokenname
     string private _name;
     //Token symbol
@@ -19,8 +19,8 @@ contract Token is Context{
 
     constructor()
     {
-        _name= "Hessiacorn";
-        _symbol="HSAC";
+        _name= "Popcoin";
+        _symbol="PPC";
         _decimals=18;
         _mint(_msgSender(),100*10000*10**_decimals);
     }
@@ -102,4 +102,8 @@ contract Token is Context{
             }
         }
     }
+    function _msgSender() internal view returns(address){
+        return msg.sender;
+    }
+
 }

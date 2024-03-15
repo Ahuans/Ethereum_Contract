@@ -260,20 +260,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/Context.sol": {
-			"keccak256": "0xf2cb519c387f3067d5d390165129c5e1c5c81a8599b18b29589331e821765bf8",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://ac02f0c826f5047e2fa45b4d555da62220b5c5fbca0f33b365d39e9fe0f43227",
-				"dweb:/ipfs/QmQEax3YRLBsifZ2sQ9rhvZxMrWuGwWRC6aftiZG36aGZy"
-			]
-		},
 		"contracts/Token.sol": {
-			"keccak256": "0x982a469fbe1d8235826f4a0d4bb95f58edb58869f4441da3c3b84a490a3eb9b9",
+			"keccak256": "0x3729e9da791ec0550909d725292a7f5f6e13b5e3775cb37a8b08845eef7ece99",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://5b1f18d2be76545a512a84ed99dd15ae1c882254896ca6d8402cbec36000be6b",
-				"dweb:/ipfs/QmXE46pTuAbkbx9nQW7ftxUGNNTrR9fqo29UoKFd7qYoXr"
+				"bzz-raw://603860650fd1d26de88bbe0012da6d9915101428970c859ae395968a3d0ecec5",
+				"dweb:/ipfs/QmNNaCTGWJJqxMRTDBDAM9CKKS187C68YZRVXPVBTvh6pW"
 			]
 		}
 	},
